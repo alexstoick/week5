@@ -36,9 +36,21 @@ public class Multiplex {
 		return -1 ;
 	}
 
-	public Ticket bookTicketForMovie ( Movie m )
+	public Ticket bookTicketForMovie ( Movie m ) throws BookingException
 	{
 		Screen s = screens[findScreenByMovie ( m )] ;
 		return s.bookTicket () ;
+	}
+
+	public  Ticket[] bookTicketsForMovie ( Movie m , int n) throws BookingException
+	{
+		Screen s = screens [ findScreenByMovie ( m ) ] ;
+		return s.bookTickets ( n ) ;
+	}
+
+	public Ticket bookBestTicketForMovie ( Movie m ) throws BookingException
+	{
+		Screen s = screens [ findScreenByMovie ( m ) ] ;
+		return s.bookBestTicket () ;
 	}
 }
